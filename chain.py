@@ -4,24 +4,14 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 
-from langchain.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
-
-texts = [
-    "LangChain 是一个用于构建 LLM 应用的框架",
-    "RAG 是检索增强生成技术",
-]
-
-vectorstore = FAISS.from_texts(texts, OpenAIEmbeddings())
-retriever = vectorstore.as_retriever()
 
 from dotenv import load_dotenv
 load_dotenv()
 
 # 模型
-llm = ChatOpenAI(model=os.getenv("MODEL_NAME"),
+llm = ChatOpenAI(model="qwen3-vl-flash",
                  api_key=os.getenv("UNIAPI_KEY"),
-                 base_url=os.getenv("BASE_URL"),
+                 base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
                  temperature=0.7)
 # 字符解析器
 parser = StrOutputParser()
