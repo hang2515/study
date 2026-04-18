@@ -1,3 +1,10 @@
+# Article app (app.py), AGV QA (agvapp.py), and FAISS build (faissku.py)
 streamlit
 langchain
 langchain-openai
+langchain-community
+langchain-core
+python-dotenv
+openai
+faiss-cpu
+numpy
